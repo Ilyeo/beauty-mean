@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row l2"></div>
+  <form class="row l8" ng-submit="loginCtrl.revisar(login)">
+    <h3> Login </h3>
+
+    <div class="input-field">
+      <input id="correo" type="email" class="validate" required ng-model="login.correo">
+      <label for="correo">Correo</label>
+    </div>
+
+    <div class="input-field">
+      <input id="contrasena" type="password" class="validate" required ng-model="login.contrasena">
+      <label for="contrasena">Contraseña</label>
+    </div>
+
+    <button class="btn waves-effect waves-light red darken-4" type="submit">Conectar</button>
+  </form>
+  <div class="row l2"></div>
+</div>
+{{ login }}
