@@ -1,0 +1,11 @@
+{
+  "name": "beauty",
+  "version": "1.0.0",
+  "description": "example site for younicornapps",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jrag@outlook.com",
+  "license": "ISC"
+}
