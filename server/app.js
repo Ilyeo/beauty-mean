@@ -6,6 +6,9 @@ var app = express();
 var mongoUtil = require('./mongoUtil');
 mongoUtil.connect();
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 app.use(express.static(__dirname + '/../client'));
 
 var bodyParser = require('body-parser');
@@ -21,11 +24,25 @@ app.get('/ObtenerProductos', function(request, response){
 });
 
 app.post('/Registro', jsonParser, function(request, response){
-  var newRegister = request.body.registro;
+  var newRegister = request.body.registro || {};
 
-  console.log('Registro: ', newRegister);
+  if(!newRegister.nombre || !newRegister.correo || !newRegister.contrasena){
+    return response.sendStatus(500);
+  }
 
-  response.sendStatus(200);
+  var users = mongoUtil.users();
+
+  bcrypt.hash(newRegister.contrasena, saltRounds, function(err, hash){
+    newRegister.contrasena = hash;
+
+    users.insert(newRegister, {w: 1}, function(err, records){
+      if(err){
+        return response.sendStatus(500);
+      }
+      response.sendStatus(200);
+    });
+  });
+
 });
 
 app.listen(7777, function(){

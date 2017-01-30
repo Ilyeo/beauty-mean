@@ -17,5 +17,8 @@ module.exports = {
   },
   products(){
     return _db.collection('products');
+  },
+  users(){
+    return _db.collection('users');
   }
 }
