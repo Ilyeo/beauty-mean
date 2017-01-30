@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row l2"></div>
-  <div class="row l8">
+  <form class="row l8" ng-submit="registroCtrl.guardarRegistro(registro)">
     <h3> Nuevo Registro </h3>
 
     <div class="input-field">
-      <input id="nombre" type="text" class="validate" >
+      <input id="nombre" type="text" class="validate" required ng-model="registro.nombre">
       <label for="first_name">Nombre</label>
     </div>
 
     <div class="input-field">
-      <input id="correo" type="text" class="validate" >
+      <input id="correo" type="text" class="validate" required ng-model="registro.correo">
       <label for="correo">Correo</label>
     </div>
 
     <div class="input-field">
-      <input id="contrasena" type="password" class="validate" >
+      <input id="contrasena" type="password" class="validate" required ng-model="registro.contrasena">
       <label for="contrasena">Contraseña</label>
     </div>
 
     <button class="btn waves-effect waves-light red darken-4" type="submit">Enviar</button>
-  </div>
+  </form>
   <div class="row l2"></div>
 </div>

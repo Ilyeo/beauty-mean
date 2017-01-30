@@ -12,7 +12,15 @@
     })
     .state('registro',{
       url: '/registro',
-      templateUrl: 'views/registro.html'
+      templateUrl: 'views/registro.html',
+      controller: function($stateParams, $state){
+        this.guardarRegistro = function(registro){
+          console.log('registro object', registro);
+
+          // $state.go('perfil', {})
+        };
+      },
+      controllerAs: 'registroCtrl'
     })
   });
 
