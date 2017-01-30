@@ -45,6 +45,29 @@ app.post('/Registro', jsonParser, function(request, response){
 
 });
 
+app.post('/Login', jsonParser, function(request, response){
+  var loginData = request.body.login || {};
+
+  if(!loginData.correo || !loginData.contrasena){
+    return response.sendStatus(500);
+  }
+
+  var users = mongoUtil.users();
+  users.find({correo: loginData.correo},{"_id": false, "correo": false, "contrasena": false}).each(function(err, doc){
+    if(doc != null){
+      response.json(doc);
+    }
+    //response.json(docs);
+  });
+  /*
+  bcrypt.compare(loginData.contrasena, doc.contrasena, function(err, res){
+    if(res){
+      console.log('Buen pass');
+    }
+  });
+  */
+  // var hash = users.find({ correo: loginData.correo })
+});
 app.listen(7777, function(){
   console.log('Server listening on port %d', 7777);
 });

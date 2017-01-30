@@ -1,0 +1,2 @@
+{"_id":{"$oid":"588ef57abb4584e9c8717450"},"nombre":"Lentes de Sol","marca":"Via Vanilla Tonic","color":"Azul","imagen":"https://images-na.ssl-images-amazon.com/images/I/31dLhJLpMUL._AA160_.jpg","precio":500.0,"unidades":14.0}
+{"_id":{"$oid":"588ef662bb4584e9c8717451"},"id":"12345","nombre":"Bolso de mano","marca":"Coofit","color":"Multicolor","imagen":"https://images-na.ssl-images-amazon.com/images/I/71f4ykr7n9L._SL1050_.jpg","precio":400.0,"unidades":10.0}
