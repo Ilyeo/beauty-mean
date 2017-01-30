@@ -15,7 +15,11 @@
       templateUrl: 'views/login.html',
       controller: function($stateParams, $state, $http){
         this.revisar = function(login){
-          console.log('login object', login);
+          // console.log('login object', login);
+
+          $http({method: 'POST', url: '/Login', data: {login}}).then(function(){
+            $state.go('productos');
+          });
         };
       },
       controllerAs: 'loginCtrl'

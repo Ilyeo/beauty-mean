@@ -1,3 +1,25 @@
+<!--
 <ul ng-controller="productsController as productsCtrl">
   <li ng-repeat="product in productsCtrl.products">{{ product.nombre }}</li>
 </ul>
+-->
+<div class="row"  ng-controller="productsController as productsCtrl">
+  <div class="col l6" ng-repeat="product in productsCtrl.products">
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light product">
+          <img class="activator" src="{{product.imagen}}">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{product.nombre}}<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Product Info<i class="material-icons right">close</i></span>
+          <p> Marca: {{product.marca}}</p>
+          <p> Color: {{product.color}}</p>
+          <p> Precio: ${{product.precio}}</p>
+          <p> Unidades: {{product.unidades}}</p>
+        </div>
+      </div>
+  </div>
+  <div class="col l6"></div>
+</div>
