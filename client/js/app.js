@@ -3,7 +3,7 @@
   var app = angular.module('beauty',['ui.router']);
 
   app.config(function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/productos');
 
     $stateProvider
     .state('productos',{
