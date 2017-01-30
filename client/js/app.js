@@ -10,14 +10,26 @@
       url: '/productos',
       templateUrl: 'views/productos.html'
     })
+    .state('login',{
+      url: '/login',
+      templateUrl: 'views/login.html',
+      controller: function($stateParams, $state, $http){
+        this.revisar = function(login){
+          console.log('login object', login);
+        };
+      },
+      controllerAs: 'loginCtrl'
+    })
     .state('registro',{
       url: '/registro',
       templateUrl: 'views/registro.html',
-      controller: function($stateParams, $state){
+      controller: function($stateParams, $state, $http){
         this.guardarRegistro = function(registro){
-          console.log('registro object', registro);
+          // console.log('registro object', registro);
 
-          // $state.go('perfil', {})
+          $http({method: 'POST', url: '/Registro', data: {registro}}).then(function(){
+            $state.go('login');
+          });
         };
       },
       controllerAs: 'registroCtrl'
