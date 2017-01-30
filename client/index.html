@@ -3,15 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <title>Beauty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
-  <h1>Beuty</h1>
+  <header>
+    <nav class="transparent">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><img class="logo-fix" src="images/Logo.png"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a ui-sref="productos" class="black-text">Productos</a></li>
+          <li><a class="black-text">Login</a></li>
+          <li><a ui-sref="registro" class="black-text">Registro</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <ul ng-controller="productsController as productsCtrl">
-    <li ng-repeat="product in productsCtrl.products">{{ product.nombre }}</li>
-  </ul>
+  <main>
+    <section>
+      <div class="carousel carousel-slider" data-indicators="true">
+        <div class="carousel-item" href="#one!">
+          <img class="promo" src="images/Promo1.jpg">
+        </div>
+        <div class="carousel-item amber white-text" href="#two!">
+          <img class="promo" src="images/Promo2.jpg">
+        </div>
+        <div class="carousel-item green white-text" href="#three!">
+          <img class="promo" src="images/Promo3.jpg">
+        </div>
+      </div>
+    </section>
 
+    <div ui-view></div>
+  </main>
+
+  <footer class="page-footer orange accent-2">
+    <div class="container center-align">
+      <img class="foot-logo" src="images/Page1.png">
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2017 Beauty
+      <a class="grey-text text-lighten-4 right" href="#!">Facebook</a>
+      <a class="grey-text text-lighten-4 right" href="#!">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>

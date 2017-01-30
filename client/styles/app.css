@@ -1,0 +1,39 @@
+@import url('normalize.css');
+
+body {
+  background: white;
+  color: #333;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.transparent {
+  background-color: transparent;
+}
+ nav {
+   box-shadow: none;
+ }
+
+.logo-fix {
+  width: 40%;
+}
+
+.promo {
+  width: 100%;
+}
+
+.carousel-slider {
+    height: 400px !important;
+}
+
+.foot-logo {
+  width: 5%;
+}
