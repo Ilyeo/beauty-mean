@@ -5,9 +5,9 @@ var app = express();
 
 var mongoUtil = require('./mongoUtil');
 mongoUtil.connect();
-
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+// lib for encrypt
+// var bcrypt = require('bcrypt');
+// const saltRounds = 10;
 
 app.use(express.static(__dirname + '/../client'));
 
@@ -27,14 +27,21 @@ app.post('/Registro', jsonParser, function(request, response){
   var newRegister = request.body.registro || {};
 
   if(!newRegister.nombre || !newRegister.correo || !newRegister.contrasena){
-    return response.sendStatus(500);
+    // return response.sendStatus(500);
+    return response.status(500).json({msg: "Error al registrar"});
   }
 
   var users = mongoUtil.users();
+  users.insert(newRegister, function (err, doc) {
+    if (err) {
+      return response.status(500).json({msg: "Error al registrar"});
+    }
+    return response.status(200).json({msg: "Registro exitoso"});
+  });
 
+  /** encrypt the password
   bcrypt.hash(newRegister.contrasena, saltRounds, function(err, hash){
     newRegister.contrasena = hash;
-
     users.insert(newRegister, {w: 1}, function(err, records){
       if(err){
         return response.sendStatus(500);
@@ -42,7 +49,7 @@ app.post('/Registro', jsonParser, function(request, response){
       response.sendStatus(200);
     });
   });
-
+  */
 });
 
 app.post('/Login', jsonParser, function(request, response){
