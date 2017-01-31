@@ -10,6 +10,10 @@
       url: '/productos',
       templateUrl: 'views/productos.html'
     })
+    .state('perfil',{
+      url: '/perfil',
+      templateUrl: 'views/perfil.html'
+    })
     .state('login',{
       url: '/login',
       templateUrl: 'views/login.html',
@@ -18,7 +22,7 @@
           // console.log('login object', login);
 
           $http({method: 'POST', url: '/Login', data: {login}}).then(function(){
-            $state.go('productos');
+            $state.go('perfil');
           });
         };
       },
