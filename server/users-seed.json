@@ -1,3 +1,2 @@
-{"_id":{"$oid":"588f64ca2464ae11112fe991"},"nombre":"White","correo":"heisenberg@bd.com","contrasena":"$2a$10$ZAE46VjTZy9eTrQYpP8iG.F8OZQIKpo/yPW40vDAQXUt0vnxjCAIG"}
-{"_id":{"$oid":"588f70d027999f19c9db2a21"},"nombre":"Roger","correo":"rojo@bd.com","contrasena":"$2a$10$sL9Z5aW6jX6E08AoaQgQKuce2P0QSnonB0bYcBTWkdM8TQvYWQinW"}
-{"_id":{"$oid":"588f730ebc0ca81ab820bbca"},"nombre":"israel","correo":"lol@bd.com","contrasena":"$2a$10$OFpZORlqKQGOoqPZ63fzJumqDhkKzqahW.cvGaP.V/zQOYrTkkk6W"}
+{"_id":{"$oid":"589105dc9c67a768d28467c7"},"nombre":"nombre","correo":"ejem@correo.com","contrasena":"hola123"}
+{"_id":{"$oid":"5891097e5290346d99e0ea76"},"nombre":"nombre2","correo":"ejem2@correo.com","contrasena":"hola123"}
