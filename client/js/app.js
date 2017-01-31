@@ -20,8 +20,9 @@
       controller: function($stateParams, $state, $http){
         this.revisar = function(login){
           // console.log('login object', login);
-
-          $http({method: 'POST', url: '/Login', data: {login}}).then(function(){
+          $http({method: 'POST', url: '/Login', data: {login}}).then(function(response){
+            var user = response.data;
+            console.log(user.nombre);
             $state.go('perfil');
           });
         };
