@@ -17,6 +17,9 @@ var jsonParser = bodyParser.json();
 app.get('/ObtenerProductos', function(request, response){
   var products = mongoUtil.products();
   products.find().toArray(function(err, docs){
+    if (err) {
+      return response.status(500).json({msg: "Error al obtener los productos"});
+    }
     // console.log(JSON.stringify(docs));
     response.json(docs);
   });
@@ -56,11 +59,18 @@ app.post('/Login', jsonParser, function(request, response){
   var loginData = request.body.login || {};
 
   if(!loginData.correo || !loginData.contrasena){
-    return response.sendStatus(500);
+    return response.status(500).json({msg: "Error en login"});
   }
 
   var users = mongoUtil.users();
-  users.find({correo: loginData.correo},{"_id": false, "correo": false, "contrasena": false}).each(function(err, doc){
+
+  var query = {correo: loginData.correo, contrsena: loginData.contrsena};
+  var options = {"_id": false, "correo": false, "contrasena": false};
+
+  users.find(query, options).each(function(err, doc){
+    if (err) {
+      return response.status(500).json({msg: "Error en login"});
+    }
     if(doc != null){
       response.json(doc);
     }
